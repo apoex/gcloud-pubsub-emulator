@@ -2,7 +2,7 @@ FROM golang:alpine as builder
 
 RUN apk update && apk upgrade && apk add --no-cache curl git
 
-RUN curl -s https://raw.githubusercontent.com/eficode/wait-for/master/wait-for -o /usr/bin/wait-for
+COPY wait-for /usr/bin/wait-for
 RUN chmod +x /usr/bin/wait-for
 
 RUN go get github.com/prep/pubsubc
